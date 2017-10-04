@@ -52,19 +52,18 @@ public class TopicPanel extends JPanel {
 		g.setColor(Color.black);
 		if(getAlign().equalsIgnoreCase("Left"))
 		{
-			g.drawString(getTopicName(), getX()+5,this.getHeight()/3-10);
-			g.drawLine(this.getX()+5, this.getHeight()/2+2, getTopicName().length()*10, this.getHeight()/2+2);
+			g.drawString(getTopicName(),this.getX()+5,this.getHeight()/3);
+			g.drawLine(this.getX()+5, this.getHeight()/3, getTopicName().length()*getFontSize()/2-20,this.getHeight()/3);
 		}
 		else if(getAlign().equalsIgnoreCase("Center"))
 		{
-			g.drawString(getTopicName(),this.getWidth()/3, this.getHeight()/3-10);
-			g.drawLine(getX()+5 + this.getWidth()/3, this.getHeight()/2+2, getTopicName().length()*22, this.getHeight()/2+2);
+			g.drawString(getTopicName(),this.getWidth()/3, this.getHeight()/3);
+			g.drawLine(getX()+5 + this.getWidth()/3, this.getHeight()/3, getTopicName().length()*22-20, this.getHeight()/3);
 		}
 		else if(getAlign().equalsIgnoreCase("Right"))
 		{
-			g.drawString(getTopicName(), this.getWidth()-getTopicName().length()*10,this.getHeight()/3-10);
-			g.drawLine(getX()+5 + this.getWidth()/3 + getTopicName().length()*24,this.getHeight()/2+2,getX()+5 +
-					this.getWidth()/3 + getTopicName().length()*15,this.getHeight()/2+2);
+			g.drawString(getTopicName(), this.getWidth()-getTopicName().length()*10,this.getHeight()/3);
+			g.drawLine(getX()+5 + this.getWidth()/3 + getTopicName().length()*24,this.getHeight()/3,getX()+5+this.getWidth()/3 + getTopicName().length()*15-20,this.getHeight()/3);
 		}	
 	}
 

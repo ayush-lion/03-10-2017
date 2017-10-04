@@ -29,7 +29,7 @@ public class FilledLeftCalloutBorder extends AbstractBorder {
 	private Insets insets = new Insets(20, 10, 10, 10); 
 	private Color filledColor;
 	
-	public FilledLeftCalloutBorder(Color filledColor) {
+	public FilledLeftCalloutBorder(Color filledColor) { 
 		this.filledColor = filledColor;
 	}
 	

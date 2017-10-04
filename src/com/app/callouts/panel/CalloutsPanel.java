@@ -28,7 +28,7 @@ public class CalloutsPanel extends JPanel {
 		
 	if(data.size()==2 || data.size()==47 || data.size()==57)
 	{
-		this.setLayout(new GridLayout(1,3));
+		this.setLayout(new GridLayout(1,3)); 
 		for (int i = 0; i < data.size(); i++) 
 		{ 
 			if(data.get(i).startsWith("ST")) 

@@ -371,11 +371,12 @@ public class Main_Panel extends JFrame {
 
 		JButton btnNewButton_1 = new JButton("Show Integrated Panel\n");
 		btnNewButton_1.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+			public void actionPerformed(ActionEvent e) { 
 
 				if (getRow2height() > 0 && getRow3height() > 0) {
 					try {
 						TestAllAbacusComponent testAllAbacusComponent = new TestAllAbacusComponent(getRow1Layout(),getRow2Layout(),getRow3Layout(),getRow1height(),
+								
 								getRow1width(), getRow2height(), getRow2width(), getRow3height(), getRow3width(),
 								getTopichight(), getTopicwidth(), getAbacushight(), getAbacuswidth(),
 								getInstructionhight(), getInstructionwidth(), getNoofrods(), getTopicname(),

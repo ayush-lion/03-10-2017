@@ -5,6 +5,7 @@ package com.app.callout;
 
 import java.awt.Color;
 import java.awt.ComponentOrientation;
+import java.awt.Font;
 import java.net.URL;
 
 import javax.swing.Icon;
@@ -26,7 +27,7 @@ public class FilledRightCallout extends Callout {
 		this.setForeground(Color.CYAN);
 		this.setOpaque(true);
 		this.setBorder(new FilledRightCalloutBorder(filledColor));
-		this.iconApplied = Boolean.FALSE;
+		this.iconApplied = Boolean.FALSE; 
 	} 
 	 
 	@Override
@@ -34,13 +35,13 @@ public class FilledRightCallout extends Callout {
 		StringBuffer txtToPrint = new StringBuffer("<html>");
 		String txtArr[] = text.split("<br>");
 		for (String sText : txtArr) {
-			String txt = wordWrap(sText, 30, "Right");
+			String txt = wordWrap(sText, 40, "Right");
 			txtToPrint.append(txt).append("<br>");
 		}
 		txtToPrint.append("</html>");
 		super.setText(txtToPrint.toString());
+		super.setFont(new Font("serif", Font.PLAIN, 14));
 	}
-	
 	@Override
 	public void displayIcon() {
 		iconApplied = Boolean.TRUE;

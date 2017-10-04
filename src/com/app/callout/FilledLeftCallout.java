@@ -5,11 +5,14 @@ package com.app.callout;
 
 import java.awt.Color;
 import java.awt.ComponentOrientation;
+import java.awt.Font;
 import java.net.URL;
 
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
+import javax.swing.text.html.HTML;
 
 /**
  * @author prashant.joshi
@@ -25,7 +28,7 @@ public class FilledLeftCallout extends Callout {
 		this.setBackground(filledColor); 
 		this.setForeground(Color.GREEN);
 		this.setOpaque(true);
-		this.setBorder(new FilledLeftCalloutBorder(filledColor));
+		this.setBorder(new FilledLeftCalloutBorder(filledColor)); 
 		this.iconApplied = Boolean.FALSE;
 	}
 	
@@ -34,12 +37,12 @@ public class FilledLeftCallout extends Callout {
 		StringBuffer txtToPrint = new StringBuffer("<html>");
 		String txtArr[] = text.split("<br>");
 		for (String sText : txtArr) {
-			String txt = wordWrap(sText, 30, "Left");
+			String txt = wordWrap(sText, 40, "Left");
 			txtToPrint.append(txt).append("<br>");
 		}
 		txtToPrint.append("</html>");
-		System.out.println("html check kr l bhai : " + txtToPrint);
 		super.setText(txtToPrint.toString());
+		super.setFont(new Font("serif", Font.PLAIN, 14));	
 	}
 
 	@Override

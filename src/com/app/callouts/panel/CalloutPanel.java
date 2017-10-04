@@ -25,7 +25,7 @@ public class CalloutPanel extends JPanel {
 	
 	
 	public CalloutPanel(String align, String text, boolean isthinking) {
-		
+		 
 		if(align.equals("left"))
 		{
 			if(isthinking) 

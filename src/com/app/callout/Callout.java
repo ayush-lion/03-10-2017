@@ -21,7 +21,7 @@ public abstract class Callout extends JLabel {
 		StringBuffer buffer = new StringBuffer();
 		int length = text.length();
         
-        String[][] insColors = { 
+        String[][] insColors = {  
 			{"coloryellow", "yellow"}, 
 			{"colorgold", "gold"},
 			{"colorred", "red"}, 
