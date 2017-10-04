@@ -147,12 +147,13 @@ public class TestAllAbacusComponent extends JFrame {
 	public void setInstructionYpoisition(int instructionYpoisition) {
 		this.instructionYpoisition = instructionYpoisition;
 	}
+
 	private TopicPanel topicPanel;
 	LinkedHashMap<String, HashMap<String, List<Action>>> compilerdata;
 
-	public TestAllAbacusComponent(int topicheight, int topicWidth, int abacusWidth, int numofrod, int instructionWidth,
-			int abacusheight, int instructionheight, String topicname, String fontname, int fontsize, String align,
-			String stalign, String ttalign) throws Throwable {
+	public TestAllAbacusComponent(String row1layout,String row2layout,String row3layout,int row1hight, int row1width, int row2hight, int row2width, int row3hight,int row3width,int topicHight,int topicwidth,int abacushight,int abacuswidth,
+			int instructionhight,int instructionwidth, int numofrod, String topicname, String fontname, int fontsize, String align, String stalign,
+			String ttalign) throws Throwable {
 
 		try {
 			ArrayList<String> dat = new ArrayList<String>();
@@ -162,23 +163,76 @@ public class TestAllAbacusComponent extends JFrame {
 			this.setResizable(false);
 			this.setTitle(topicname);
 			this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
+			
+			JPanel row1=new JPanel();
+			JPanel row2=new JPanel();
+			JPanel row3=new JPanel();
+			
 			topicPanel = new TopicPanel();
-			topicPanel.setBounds(10, 0, this.getWidth(), this.getHeight() * topicheight / 100);
+			panel = new AbacusPanel();
+			instructionpanel = new MainPanel();
+		
+			
+			if(row1layout.equals("topic")) 
+			{
+			topicPanel.setBounds(10, 0, this.getWidth()-25, this.getHeight() * row1hight / 100);
+			}else
+			if(row1layout.equals("abacus")) 
+			{
+			panel.setBounds(10, 0, this.getWidth()-25, this.getHeight() * row1hight / 100);		
+			}else 
+			if(row1layout.equals("actor"))
+			{
+			instructionpanel.setBounds(10, 0, this.getWidth()-25, this.getHeight() * row1hight / 100);		
+			}
+			
+			
+			if(row2layout.equals("topic")) 
+			{
+			topicPanel.setBounds(10,  this.getHeight() * row1hight / 100, this.getWidth() - 25, this.getHeight() * row2hight / 100);
+			}else
+			if(row2layout.equals("abacus")) 
+			{
+			panel.setBounds(10,  this.getHeight() * row1hight / 100, this.getWidth() - 25, this.getHeight() * row2hight / 100);
+			}else 
+			if(row2layout.equals("actor"))
+			{
+			instructionpanel.setBounds(10,  this.getHeight() * row1hight / 100, this.getWidth() - 25, this.getHeight() * row2hight / 100);	
+			}
+			
+			if(row3layout.equals("topic")) 
+			{
+			topicPanel.setBounds(10,  this.getHeight() * row1hight / 100 + this.getHeight() * row2hight / 100, this.getWidth() - 25,this.getHeight() * row3hight / 100);
+			}else
+			if(row3layout.equals("abacus")) 
+			{
+			panel.setBounds(10,  this.getHeight() * row1hight / 100 + this.getHeight() * row2hight / 100, this.getWidth() - 25,this.getHeight() * row3hight / 100);		
+			}else 
+			if(row3layout.equals("actor"))
+			{
+			instructionpanel.setBounds(10,  this.getHeight() * row1hight / 100 + this.getHeight() * row2hight / 100, this.getWidth() - 25,this.getHeight() * row3hight / 100-20);		
+			}
+			
+			row1.setBackground(Color.blue);
+			row2.setBackground(Color.YELLOW);
+			row3.setBackground(Color.red);
+	
+			this.add(row1);
+			this.add(row2);
+			this.add(row3);
+			
 			topicPanel.setTopicName(topicname);
 			topicPanel.setFontName(fontname);
 			topicPanel.setFontSize(fontsize);
 			topicPanel.setAlign(align);
+
 			
-			panel = new AbacusPanel();
 			panel.setNoOfrod(numofrod);
-			panel.setBounds(10, topicPanel.getHeight(), this.getWidth() - 25, this.getHeight() * abacusheight / 100);
 			panel.initializeAbacus();
-			
+
 			// panel.displayCount("");
 
 			panel.hidePlaceValues();
-
 			panel.hideBeadLabels();
 			panel.hideUpperBeadsLabels();
 			panel.hideRodLabels();
@@ -186,55 +240,55 @@ public class TestAllAbacusComponent extends JFrame {
 			panel.hideDots();
 
 			setUpAbacusTopPanel();
-			instructionpanel = new MainPanel();
+
 			instructionpanel.setStdalign(stalign);
 			instructionpanel.setTuteralign(ttalign);
+
 			instructionpanel.ChangeInstructions(dat, instructionpanel);
-			
-			instructionpanel.setBounds(10, panel.getHeight() + topicPanel.getHeight(), this.getWidth() - 10,this.getHeight() * instructionheight / 100 - this.getHeight() / 20);
 
 			JPanel paneltest = new JPanel();
-			paneltest.setBounds(10, panel.getHeight() + topicPanel.getHeight() + instructionpanel.getHeight(),this.getWidth(), this.getHeight() / 20);
+			paneltest.setBounds(10, panel.getHeight() + topicPanel.getHeight() + instructionpanel.getHeight(),
+					this.getWidth(), this.getHeight() / 20);
 
 			setupPlayPanel();
 			setupMenuBar();
+			
 			// Add constraints
+			
 			GridBagConstraints constraints = new GridBagConstraints();
 			constraints.fill = GridBagConstraints.BOTH;
 			constraints.ipady = 0;
 			this.setJMenuBar(menuBar);
+			
 			// Add Student Panel
+			
 			constraints.gridx = 0;
 			constraints.gridy = 0;
 			constraints.weightx = 1;
 			constraints.weighty = 10 / 100;
-	
+
 			this.add(topicPanel, constraints);
-			
-			//this.add(topicPanel);
-			
+
 			// Add Callout panel
 
 			constraints.gridx = 0;
 			constraints.gridy = 1;
 			constraints.weightx = 1;
-			System.out.println("" + abacusheight + " " + instructionheight);
+			System.out.println("" + row3hight + " " + row3hight);
 			constraints.weighty = 50 / 100;
-		
+
 			this.add(panel, constraints);
-			
-			//this.add(panel);
 
 			// Add teacher Panel
 			constraints.gridx = 0;
 			constraints.gridy = 2;
 			constraints.weightx = 1;
 			constraints.weighty = 40 / 100;
-			
+
 			this.add(instructionpanel, constraints);
-			
+
 			this.add(paneltest);
-			
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -477,7 +531,7 @@ public class TestAllAbacusComponent extends JFrame {
 				// TODO Auto-generated method stub
 				try {
 					start_instructions(getCompilerdata());
-			
+
 				} catch (AbacusException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
@@ -602,7 +656,7 @@ public class TestAllAbacusComponent extends JFrame {
 				}
 			}
 		});
-		
+
 		killButton = new JButton("Kill Demo");
 		killButton.setBounds(945, 10, 90, 40);
 		killButton.setEnabled(false);
@@ -641,7 +695,7 @@ public class TestAllAbacusComponent extends JFrame {
 				JOptionPane.showMessageDialog(null, "No Errors!!!.", "InfoBox: Abacus Compiler",
 						JOptionPane.INFORMATION_MESSAGE);
 				setCompilerdata(complier.getInstructionData());
-				//start_instructions();
+				// start_instructions();
 			}
 		} catch (CompilerException e1) {
 			e1.printStackTrace();
@@ -686,7 +740,7 @@ public class TestAllAbacusComponent extends JFrame {
 	public void start_instructions(LinkedHashMap<String, HashMap<String, List<Action>>> linkedHashMap)
 			throws AbacusException {
 
-		//start_beforInstructing(linkedHashMap);
+		// start_beforInstructing(linkedHashMap);
 		performer = new Performer();
 		performer.setAbacusPanel(panel);
 		performer.setInstructionPanel(instructionpanel);
@@ -716,7 +770,7 @@ public class TestAllAbacusComponent extends JFrame {
 	public void setCompilerdata(LinkedHashMap<String, HashMap<String, List<Action>>> compilerdata) {
 		this.compilerdata = compilerdata;
 	}
-	
+
 	/**
 	 * @return the instructionpath
 	 */

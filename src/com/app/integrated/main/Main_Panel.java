@@ -43,32 +43,88 @@ public class Main_Panel extends JFrame {
 	LinkedHashMap<String, HashMap<String, List<Action>>> data;
 	private String teacheralign;
 	private String studentalign;
-	private int topicYpoisition;
-	private int abacusYpoisition;
-	private int instructionYpoisition;
+
+	private int topichight;
+	private int topicwidth;
+	private int abacushight;
+	private int abacuswidth;
+	private int instructionhight;
+	private int instructionwidth;
 	
-	public int getTopicYpoisition() {
-		return topicYpoisition;
+	private String row1Layout;
+	private String row2Layout;
+	private String row3Layout;
+	
+	public String getRow1Layout() {
+		return row1Layout;
 	}
 
-	public void setTopicYpoisition(int topicYpoisition) {
-		this.topicYpoisition = topicYpoisition;
+	public void setRow1Layout(String row1Layout) {
+		this.row1Layout = row1Layout;
 	}
 
-	public int getAbacusYpoisition() {
-		return abacusYpoisition;
+	public String getRow2Layout() {
+		return row2Layout;
 	}
 
-	public void setAbacusYpoisition(int abacusYpoisition) {
-		this.abacusYpoisition = abacusYpoisition;
+	public void setRow2Layout(String row2Layout) {
+		this.row2Layout = row2Layout;
 	}
 
-	public int getInstructionYpoisition() {
-		return instructionYpoisition;
+	public String getRow3Layout() {
+		return row3Layout;
 	}
 
-	public void setInstructionYpoisition(int instructionYpoisition) {
-		this.instructionYpoisition = instructionYpoisition;
+	public void setRow3Layout(String row3Layout) {
+		this.row3Layout = row3Layout;
+	}
+
+	public int getTopichight() {
+		return topichight;
+	}
+
+	public void setTopichight(int topichight) {
+		this.topichight = topichight;
+	}
+
+	public int getTopicwidth() {
+		return topicwidth;
+	}
+
+	public void setTopicwidth(int topicwidth) {
+		this.topicwidth = topicwidth;
+	}
+
+	public int getAbacushight() {
+		return abacushight;
+	}
+
+	public void setAbacushight(int abacushight) {
+		this.abacushight = abacushight;
+	}
+
+	public int getAbacuswidth() {
+		return abacuswidth;
+	}
+
+	public void setAbacuswidth(int abacuswidth) {
+		this.abacuswidth = abacuswidth;
+	}
+
+	public int getInstructionhight() {
+		return instructionhight;
+	}
+
+	public void setInstructionhight(int instructionhight) {
+		this.instructionhight = instructionhight;
+	}
+
+	public int getInstructionwidth() {
+		return instructionwidth;
+	}
+
+	public void setInstructionwidth(int instructionwidth) {
+		this.instructionwidth = instructionwidth;
 	}
 
 	/**
@@ -86,7 +142,8 @@ public class Main_Panel extends JFrame {
 	}
 
 	/**
-	 * @param teacheralign the teacheralign to set
+	 * @param teacheralign
+	 *            the teacheralign to set
 	 */
 	public void setTeacheralign(String teacheralign) {
 		this.teacheralign = teacheralign;
@@ -100,22 +157,74 @@ public class Main_Panel extends JFrame {
 	}
 
 	/**
-	 * @param studentalign the studentalign to set
+	 * @param studentalign
+	 *            the studentalign to set
 	 */
 	public void setStudentalign(String studentalign) {
 		this.studentalign = studentalign;
 	}
 
 	/**
-	 * @param data the data to set
+	 * @param data
+	 *            the data to set
 	 */
 	public void setData(LinkedHashMap<String, HashMap<String, List<Action>>> data) {
 		this.data = data;
 	}
 
-	private int topicheight, topicwidth, abacusheight, abacuswidth, instructionheight, instructionwidth, fontsize, numofrows, noofcoloumns, noofrods;
-	String  topicalignment;
+	private int row1height, row1width, row2height, row2width, row3height, row3width, fontsize, numofrows, noofcoloumns,
+			noofrods;
+	String topicalignment;
 	InstructionCompiler compiler;
+
+	public int getRow1height() {
+		return row1height;
+	}
+
+	public void setRow1height(int row1height) {
+		this.row1height = row1height;
+	}
+
+	public int getRow1width() {
+		return row1width;
+	}
+
+	public void setRow1width(int row1width) {
+		this.row1width = row1width;
+	}
+
+	public int getRow2height() {
+		return row2height;
+	}
+
+	public void setRow2height(int row2height) {
+		this.row2height = row2height;
+	}
+
+	public int getRow2width() {
+		return row2width;
+	}
+
+	public void setRow2width(int row2width) {
+		this.row2width = row2width;
+	}
+
+	public int getRow3height() {
+		return row3height;
+	}
+
+	public void setRow3height(int row3height) {
+		this.row3height = row3height;
+	}
+
+	public int getRow3width() {
+		return row3width;
+	}
+
+	public void setRow3width(int row3width) {
+		this.row3width = row3width;
+	}
+
 	/**
 	 * @return the topicalignment
 	 */
@@ -124,7 +233,8 @@ public class Main_Panel extends JFrame {
 	}
 
 	/**
-	 * @param topicalignment the topicalignment to set
+	 * @param topicalignment
+	 *            the topicalignment to set
 	 */
 	public void setTopicalignment(String topicalignment) {
 		this.topicalignment = topicalignment;
@@ -138,7 +248,8 @@ public class Main_Panel extends JFrame {
 	}
 
 	/**
-	 * @param noofrods the noofrods to set
+	 * @param noofrods
+	 *            the noofrods to set
 	 */
 	public void setNoofrods(int noofrods) {
 		this.noofrods = noofrods;
@@ -152,7 +263,8 @@ public class Main_Panel extends JFrame {
 	}
 
 	/**
-	 * @param numofrows the numofrows to set
+	 * @param numofrows
+	 *            the numofrows to set
 	 */
 	public void setNumofrows(int numofrows) {
 		this.numofrows = numofrows;
@@ -166,7 +278,8 @@ public class Main_Panel extends JFrame {
 	}
 
 	/**
-	 * @param noofcoloumns the noofcoloumns to set
+	 * @param noofcoloumns
+	 *            the noofcoloumns to set
 	 */
 	public void setNoofcoloumns(int noofcoloumns) {
 		this.noofcoloumns = noofcoloumns;
@@ -180,7 +293,8 @@ public class Main_Panel extends JFrame {
 	}
 
 	/**
-	 * @param fontsize the fontsize to set
+	 * @param fontsize
+	 *            the fontsize to set
 	 */
 	public void setFontsize(int fontsize) {
 		this.fontsize = fontsize;
@@ -194,7 +308,8 @@ public class Main_Panel extends JFrame {
 	}
 
 	/**
-	 * @param fontname the fontname to set
+	 * @param fontname
+	 *            the fontname to set
 	 */
 	public void setFontname(String fontname) {
 		this.fontname = fontname;
@@ -229,17 +344,16 @@ public class Main_Panel extends JFrame {
 	public Main_Panel() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
-		
+
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		
+
 		JButton btnNewButton = new JButton("Load Instruction Sheet");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
-				
+
 				try {
 					JFileChooser jFileChooser = new JFileChooser();
 					int result = jFileChooser.showOpenDialog(new JFrame());
@@ -249,82 +363,79 @@ public class Main_Panel extends JFrame {
 					}
 				} catch (Exception e1) {
 					e1.printStackTrace();
-				}			
+				}
 			}
 		});
 		btnNewButton.setBounds(17, 58, 172, 48);
 		contentPane.add(btnNewButton);
-		
+
 		JButton btnNewButton_1 = new JButton("Show Integrated Panel\n");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
-				if(getInstructionheight()>0 && getAbacusheight()>0)
-				{
-				try {
-					TestAllAbacusComponent testAllAbacusComponent = new TestAllAbacusComponent(getTopicheight(),
-					getTopicwidth(), getAbacuswidth(), getNoofrods(), getInstructionwidth(),
-					getAbacusheight(), getInstructionheight(), getTopicname(), getFontname(), getFontsize(),getTopicalignment(), getStudentalign(), getTeacheralign());
-					testAllAbacusComponent.setCompilerdata(getData());
-					testAllAbacusComponent.showPanel();
-					
-					testAllAbacusComponent.setVisible(true);
-					testAllAbacusComponent.invalidate();
-					testAllAbacusComponent.validate();
-					testAllAbacusComponent.repaint();
-		
-					//testAllAbacusComponent.pack();
-				
-				} catch (Throwable e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
-				}else
-				{
+
+				if (getRow2height() > 0 && getRow3height() > 0) {
+					try {
+						TestAllAbacusComponent testAllAbacusComponent = new TestAllAbacusComponent(getRow1Layout(),getRow2Layout(),getRow3Layout(),getRow1height(),
+								getRow1width(), getRow2height(), getRow2width(), getRow3height(), getRow3width(),
+								getTopichight(), getTopicwidth(), getAbacushight(), getAbacuswidth(),
+								getInstructionhight(), getInstructionwidth(), getNoofrods(), getTopicname(),
+								getFontname(), getFontsize(), getTopicalignment(), getStudentalign(),
+								getTeacheralign());
+
+						testAllAbacusComponent.setCompilerdata(getData());
+						testAllAbacusComponent.showPanel();
+						testAllAbacusComponent.setVisible(true);
+						testAllAbacusComponent.invalidate();
+						testAllAbacusComponent.validate();
+						testAllAbacusComponent.repaint();
+
+						// testAllAbacusComponent.pack();
+					} catch (Throwable e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+				} else {
 					JOptionPane.showMessageDialog(null, "Please select a file first", "InfoBox: Integrated Panel",
 							JOptionPane.INFORMATION_MESSAGE);
 				}
-				
+
 			}
 		});
 		btnNewButton_1.setBounds(17, 177, 172, 48);
 		contentPane.add(btnNewButton_1);
-		
+
 		textField = new JTextField();
 		textField.setBounds(201, 68, 221, 26);
 		contentPane.add(textField);
 		textField.setColumns(10);
-		
+
 		JButton btnNewButton_2 = new JButton("Compiler");
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(textField.getText().length()>0)
-				{
-				try {
-					
-					compiler = new InstructionCompiler(textField.getText());
-					boolean isAllSet = compiler.compileInstructions();
-					if (!isAllSet) {
-						JOptionPane.showMessageDialog(null, "Found Errors!!!. Please resolve!!!", "InfoBox: Abacus Compiler",
-								JOptionPane.INFORMATION_MESSAGE);
-						displayErrors(compiler.getMapOfErrors());
-					} else {
-						JOptionPane.showMessageDialog(null, "No Errors!!!.", "InfoBox: Abacus Compiler",
-								JOptionPane.INFORMATION_MESSAGE);
-						setData(compiler.getInstructionData());
-						start_beforInstructing();
+				if (textField.getText().length() > 0) {
+					try {
+
+						compiler = new InstructionCompiler(textField.getText());
+						boolean isAllSet = compiler.compileInstructions();
+						if (!isAllSet) {
+							JOptionPane.showMessageDialog(null, "Found Errors!!!. Please resolve!!!",
+									"InfoBox: Abacus Compiler", JOptionPane.INFORMATION_MESSAGE);
+							displayErrors(compiler.getMapOfErrors());
+						} else {
+							JOptionPane.showMessageDialog(null, "No Errors!!!.", "InfoBox: Abacus Compiler",
+									JOptionPane.INFORMATION_MESSAGE);
+							setData(compiler.getInstructionData());
+							start_beforInstructing();
+						}
+					} catch (CompilerException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					} catch (AbacusException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
 					}
-				} catch (CompilerException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				} catch (AbacusException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
-				
-				}
-				else
-				{
+
+				} else {
 					JOptionPane.showMessageDialog(null, "Please select a file first", "InfoBox: Integrated Panel",
 							JOptionPane.INFORMATION_MESSAGE);
 				}
@@ -332,7 +443,7 @@ public class Main_Panel extends JFrame {
 		});
 		btnNewButton_2.setBounds(17, 123, 172, 42);
 		contentPane.add(btnNewButton_2);
-	
+
 		tablepanel = new JPanel();
 		tablepanel.setBackground(Color.RED);
 		tablepanel.setBounds(10, 100, this.getWidth() - 20, this.getHeight() - 150);
@@ -342,7 +453,7 @@ public class Main_Panel extends JFrame {
 		model.addColumn("Row");
 		model.addColumn("Instructions");
 		model.addColumn("Actions");
-		
+
 		table = new JTable(model);
 		table.setGridColor(Color.LIGHT_GRAY);
 
@@ -362,7 +473,7 @@ public class Main_Panel extends JFrame {
 				new Dimension(tablepanel.getWidth() - 20, tablepanel.getHeight() - 40));
 		tablepanel.add(new JScrollPane(table));
 	}
-	
+
 	private void displayErrors(LinkedHashMap<String, HashMap<String, List<String>>> errors) {
 		// TODO Auto-generated method stub
 
@@ -395,9 +506,7 @@ public class Main_Panel extends JFrame {
 		}
 		JOptionPane.showConfirmDialog(null, tablepanel, "Error Details", JOptionPane.CANCEL_OPTION);
 	}
-	
-	
-	
+
 	public void start_beforInstructing() throws AbacusException {
 		Set<Entry<String, HashMap<String, List<Action>>>> entrySet = data.entrySet();
 		int i = 0;
@@ -410,7 +519,7 @@ public class Main_Panel extends JFrame {
 			for (Entry<String, List<Action>> entry2 : sEntry) {
 				i++;
 				String instruction = entry2.getKey();
-			
+
 				ArrayList<String> strings = new ArrayList<>(Arrays.asList(instruction.split("")));
 				if (instruction.contains("Learning")) {
 					String s = instruction.replace("<Topic>", "");
@@ -419,88 +528,96 @@ public class Main_Panel extends JFrame {
 					setTopicname(s3);
 				}
 				List<Action> listOfActions = entry2.getValue();
-				for (Action actionlist : listOfActions) 
-				{
-					if (actionlist.getActionName().contains("Font")) 
-					{
+				for (Action actionlist : listOfActions) {
+					if (actionlist.getActionName().contains("Font")) {
 						setFontname(String.valueOf(actionlist.getFont().getName()));
 						setFontsize(Integer.parseInt(actionlist.getFont().getSize()));
-					}
-					else
-					if (actionlist.getActionName().contains("Layout")) 
-					{
-					setNumofrows((actionlist.getLayout().getNumOfRow()));
-					setNoofcoloumns(((actionlist.getLayout().getNumOfCols())));
-					System.out.println("hurrah mil gayee row and colum : "+actionlist.getLayout().getRows()+" : yes i got finally");
-					for (int j = 0; j < actionlist.getLayout().getRows().size(); j++) {
-						if (j == 0) {
-							if (actionlist.getLayout().getRows().get(j).getCols().get(0).getComponentName().contains("topic")) {
-								setTopicheight(Integer.parseInt(actionlist.getLayout().getRows().get(j).getHeight().replaceAll("null", "")));
-								setTopicwidth(Integer.parseInt(actionlist.getLayout().getRows().get(j).getWidth().replaceAll("null", "")));
-								setTopicYpoisition(0);
+					} else if (actionlist.getActionName().contains("Layout")) {
+						setNumofrows((actionlist.getLayout().getNumOfRow()));
+						setNoofcoloumns(((actionlist.getLayout().getNumOfCols())));
+
+						for (int j = 0; j < actionlist.getLayout().getRows().size(); j++) {
+							if (j == 0) {
+								setRow1height(Integer.parseInt(actionlist.getLayout().getRows().get(j).getHeight().replaceAll("null", "")));
+								setRow1width(Integer.parseInt(actionlist.getLayout().getRows().get(j).getWidth().replaceAll("null", "")));
+
+								if (actionlist.getLayout().getRows().get(j).getCols().get(0).getComponentName().contains("topic")) {
+									setTopichight(getRow1height());
+									setTopicwidth(getRow1width());
+									setRow1Layout("topic");
+
+										
+								} else if (actionlist.getLayout().getRows().get(j).getCols().get(0).getComponentName().contains("abacus")) {
+									setAbacushight(getRow1height());
+									setAbacuswidth(getRow1width());
+									setRow1Layout("abacus");
 									
-							} else if (actionlist.getLayout().getRows().get(j).getCols().get(0).getComponentName().contains("abacus")) {
-								setAbacusheight(Integer.parseInt(actionlist.getLayout().getRows().get(j).getHeight().replaceAll("null", "")));
-								setAbacuswidth((Integer.parseInt(actionlist.getLayout().getRows().get(j).getWidth().replaceAll("null", ""))));
-								setAbacusYpoisition(0);
+										
+								} else if (actionlist.getLayout().getRows().get(j).getCols().get(0).getComponentName().contains("actor")) {
+									setInstructionhight(getRow1height());
+									setInstructionwidth(getRow1width());
+									setRow1Layout("actor");
+								}
+							}
+							if (j == 1) {
+								
+								setRow2height(Integer.parseInt(actionlist.getLayout().getRows().get(j).getHeight().replaceAll("null", "")));
+								setRow2width(Integer.parseInt(actionlist.getLayout().getRows().get(j).getWidth().replaceAll("null", "")));
+								
+								if (actionlist.getLayout().getRows().get(j).getCols().get(0).getComponentName().contains("topic")) {
+									setTopichight(getRow2height());
+									setTopicwidth(getRow2width());
+									setRow2Layout("topic");
+
+										
+								} else if (actionlist.getLayout().getRows().get(j).getCols().get(0).getComponentName().contains("abacus")) {
+									setAbacushight(getRow2height());
+									setAbacuswidth(getRow2width());
+									setRow2Layout("abacus");
 									
-							} else if (actionlist.getLayout().getRows().get(j).getCols().get(0).getComponentName().contains("actor")) {
-								setInstructionheight(Integer.parseInt((actionlist.getLayout().getRows().get(j).getHeight().replaceAll("null", ""))));
-								setInstructionwidth(Integer.parseInt(actionlist.getLayout().getRows().get(j).getWidth().replaceAll("null", "")));
-								setInstructionYpoisition(0);
+										
+								} else if (actionlist.getLayout().getRows().get(j).getCols().get(0).getComponentName().contains("actor")) {
+									setInstructionhight(getRow2height());
+									setInstructionwidth(getRow2width());
+									setRow2Layout("actor");
+					
+								}
+							}
+							if (j == 2) {
+								setRow3height(Integer.parseInt(actionlist.getLayout().getRows().get(j).getHeight().replaceAll("null", "")));
+								setRow3width(Integer.parseInt(actionlist.getLayout().getRows().get(j).getWidth().replaceAll("null", "")));
 								
+								if (actionlist.getLayout().getRows().get(j).getCols().get(0).getComponentName().contains("topic")) {
+									setTopichight(getRow3height());
+									setTopicwidth(getRow3width());
+									setRow3Layout("topic");
+
+										
+								} else if (actionlist.getLayout().getRows().get(j).getCols().get(0).getComponentName().contains("abacus")) {
+									setAbacushight(getRow3height());
+									setAbacuswidth(getRow3width());
+									setRow3Layout("abacus");
+									
+										
+								} else if (actionlist.getLayout().getRows().get(j).getCols().get(0).getComponentName().contains("actor")) {
+									setInstructionhight(getRow3height());
+									setInstructionwidth(getRow3width());
+									setRow3Layout("actor");
+					
+								}
 							}
 						}
-						if (j == 1) {
-							if (actionlist.getLayout().getRows().get(j).getCols().get(0).getComponentName().contains("topic")) {
-								setTopicheight(Integer.parseInt((actionlist.getLayout().getRows().get(j).getHeight().replaceAll("null", ""))));
-								setTopicwidth(Integer.parseInt(actionlist.getLayout().getRows().get(j).getWidth().replaceAll("null", "")));
-								setTopicYpoisition(i);
-								
-							} else if (actionlist.getLayout().getRows().get(j).getCols().get(0).getComponentName().contains("abacus")) {
-								setAbacusheight(Integer.parseInt(actionlist.getLayout().getRows().get(j).getHeight().replaceAll("null", "")));
-								setAbacuswidth((Integer.parseInt(actionlist.getLayout().getRows().get(j).getWidth().replaceAll("null", ""))));
-								
-							} else if (actionlist.getLayout().getRows().get(j).getCols().get(0).getComponentName().contains("actor")) {
-								setInstructionheight(Integer.parseInt((actionlist.getLayout().getRows().get(j).getHeight().replaceAll("null", ""))));
-								setInstructionwidth(Integer.parseInt(actionlist.getLayout().getRows().get(j).getWidth().replaceAll("null", "")));
-								
+					} else if (actionlist.getActionName().replaceAll("null", "").contains("Component")) {
+						System.out.println("" + actionlist);
+						if (actionlist.getComponent().getName().replaceAll("null", "").equals("abacus")) {
+							if (actionlist.getRodNumber() != null) {
+								setNoofrods(actionlist.getRodNumber());
+								System.out.println("get rods " + getNoofrods());
 							}
-						}
-						if (j == 2) {
-							if (actionlist.getLayout().getRows().get(j).getCols().get(0).getComponentName().contains("topic")) {
-								setTopicheight(Integer.parseInt(actionlist.getLayout().getRows().get(j).getHeight().replaceAll("null", "")));
-								setTopicwidth(Integer.parseInt(actionlist.getLayout().getRows().get(j).getWidth().replaceAll("null", "")));
-								
-							} else if (actionlist.getLayout().getRows().get(j).getCols().get(0).getComponentName().contains("abacus")) {
-								setAbacusheight(Integer.parseInt((actionlist.getLayout().getRows().get(j).getHeight().replaceAll("null", ""))));
-								setAbacuswidth(Integer.parseInt(actionlist.getLayout().getRows().get(j).getWidth().replaceAll("null", "")));
-							
-							} else if (actionlist.getLayout().getRows().get(j).getCols().get(0).getComponentName().contains("actor")) {
-								setInstructionheight(Integer.parseInt((actionlist.getLayout().getRows().get(j).getHeight().replaceAll("null", ""))));
-								setInstructionwidth(Integer.parseInt(actionlist.getLayout().getRows().get(j).getWidth().replaceAll("null", "")));
-								
-							}					
-						}
-					}
-				}
-					else if (actionlist.getActionName().replaceAll("null", "").contains("Component")) 
-					{
-						System.out.println(""+actionlist);
-							if(actionlist.getComponent().getName().replaceAll("null", "").equals("abacus"))
-							{
-							if(actionlist.getRodNumber()!=null)
-							{
-							setNoofrods(actionlist.getRodNumber());	
-							System.out.println("get rods "+getNoofrods());
-							}
-						}
-						else if (actionlist.getComponent().getName().equals("topic"))
-						{
+						} else if (actionlist.getComponent().getName().equals("topic")) {
 							setTopicalignment(actionlist.getComponent().getAlign());
-							System.out.println("get topic "+getTopicalignment());
-						}
-						else if (actionlist.getComponent().getName().contains("actor")) {
+							System.out.println("get topic " + getTopicalignment());
+						} else if (actionlist.getComponent().getName().contains("actor")) {
 							setTeacheralign((actionlist.getComponent().getTeacherAlign()));
 							setStudentalign((actionlist.getComponent().getStudentAlign()));
 
@@ -514,95 +631,6 @@ public class Main_Panel extends JFrame {
 	}
 
 	/**
-	 * @return the topicwidth
-	 */
-	public int getTopicwidth() {
-		return topicwidth;
-	}
-
-	/**
-	 * @param topicwidth the topicwidth to set
-	 */
-	public void setTopicwidth(int topicwidth) {
-		this.topicwidth = topicwidth;
-	}
-
-	/**
-	 * @return the abacuswidth
-	 */
-	public int getAbacuswidth() {
-		return abacuswidth;
-	}
-
-	/**
-	 * @param abacuswidth the abacuswidth to set
-	 */
-	public void setAbacuswidth(int abacuswidth) {
-		this.abacuswidth = abacuswidth;
-	}
-
-	/**
-	 * @return the instructionwidth
-	 */
-	public int getInstructionwidth() {
-		return instructionwidth;
-	}
-
-	/**
-	 * @param instructionwidth the instructionwidth to set
-	 */
-	public void setInstructionwidth(int instructionwidth) {
-		this.instructionwidth = instructionwidth;
-	}
-
-	private char[] getInstruction() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	/**
-	 * @return the topicheight
-	 */
-	public int getTopicheight() {
-		return topicheight;
-	}
-
-	/**
-	 * @param topicheight the topicheight to set
-	 */
-	public void setTopicheight(int topicheight) {
-		this.topicheight = topicheight;
-	}
-
-	/**
-	 * @return the abacusheight
-	 */
-	public int getAbacusheight() {
-		return abacusheight;
-	}
-
-	/**
-	 * @param abacusheight the abacusheight to set
-	 */
-	public void setAbacusheight(int abacusheight) {
-		this.abacusheight = abacusheight;
-	}
-
-	/**
-	 * @return the instructionheight
-	 */
-	public int getInstructionheight() {
-		return instructionheight;
-	}
-
-	/**
-	 * @param instructionheight the instructionheight to set
-	 */
-	public void setInstructionheight(int instructionheight) {
-		this.instructionheight = instructionheight;
-	}
-
-	/**
 	 * @return the topicname
 	 */
 	public String getTopicname() {
@@ -610,7 +638,8 @@ public class Main_Panel extends JFrame {
 	}
 
 	/**
-	 * @param topicname the topicname to set
+	 * @param topicname
+	 *            the topicname to set
 	 */
 	public void setTopicname(String topicname) {
 		this.topicname = topicname;
